@@ -40,4 +40,5 @@
 
 
 Copyright © 2020 by KondrativVO. 
+
 All Rights Reserved.
