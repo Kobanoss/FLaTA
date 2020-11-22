@@ -102,8 +102,8 @@ int fromFile(FILE *input_file, Graph *graph, bool is_directed, bool get_size) {
         if (feof(input_file)) continue;
         fseek(input_file, -1, SEEK_CUR);
 
-        if ((is_directed == True && fscanf(input_file, "%d--%d",&_, &_))||
-        (is_directed == False && fscanf(input_file, "%d->%d",&_,&_))) {
+        if ((is_directed == True && fscanf(input_file, "%d -- %d",&_, &_))||
+        (is_directed == False && fscanf(input_file, "%d -> %d",&_,&_))) {
             fseek(input_file, -2, SEEK_CUR);
 
             int first_p, second_p;
