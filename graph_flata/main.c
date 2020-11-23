@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 
-int _;
+
 #define UNUSED(argc) (void)(argc)
 typedef enum {False, True} bool;
 int min_p;
@@ -17,6 +17,7 @@ typedef struct node {
 
 typedef struct Graph {
     int size;
+    bool is_directed;
     bool *visited;
     node **points;
 } Graph;
@@ -30,9 +31,10 @@ node *createNode(int v) {
     return newNode;
 }
 
-Graph *createGraph(int size) {
+Graph *createGraph(int size, bool is_directed) {
     Graph *graph = malloc(sizeof(Graph));
     graph->size = size;
+    graph->is_directed = is_directed;
     graph->points = malloc(size * sizeof(node*));
     graph->visited = malloc(size * sizeof(bool));
 
@@ -44,7 +46,7 @@ Graph *createGraph(int size) {
     return graph;
 }
 
-void addEdge(Graph *graph, int first_p, int second_p, bool is_directed) {
+void addEdge(Graph *graph, int first_p, int second_p) {
 
     node *newNode = createNode(second_p);
     newNode->next = graph->points[first_p];
@@ -52,7 +54,7 @@ void addEdge(Graph *graph, int first_p, int second_p, bool is_directed) {
     graph->points[first_p] = newNode;
 
 
-    if (is_directed == False) {
+    if (graph->is_directed == False) {
         newNode = createNode(first_p);
         newNode->next = graph->points[second_p];
         newNode->uniq = False;
@@ -91,9 +93,10 @@ void check(Graph *graph) {
     else printf("\nGraph is not connected\n");
 }
 
-int fromFile(FILE *input_file, Graph *graph, bool is_directed, bool get_size) {
+int fromFile(FILE *input_file, Graph *graph, bool get_size) {
     fseek(input_file, 0, SEEK_SET);
 
+    int _;
     int max_p = 0;
     min_p = 1 << 30;
 
@@ -102,19 +105,20 @@ int fromFile(FILE *input_file, Graph *graph, bool is_directed, bool get_size) {
         if (feof(input_file)) continue;
         fseek(input_file, -1, SEEK_CUR);
 
-        if ((is_directed == True && fscanf(input_file, "%d -- %d",&_, &_))||
-        (is_directed == False && fscanf(input_file, "%d -> %d",&_,&_))) {
-            fseek(input_file, -2, SEEK_CUR);
+        int step = ftell(input_file);
+        if (((graph->is_directed == False) && fscanf(input_file, "%d -- %d",&_, &_))||
+            ((graph->is_directed == True) && fscanf(input_file, "%d -> %d",&_,&_))) {
+            fseek(input_file, step, SEEK_SET);
 
             int first_p, second_p;
-            if (is_directed == True) fscanf(input_file, "%d->%d", &first_p, &second_p);
-            else fscanf(input_file, "%d--%d", &first_p, &second_p);
+            if (graph->is_directed == True) fscanf(input_file, "%d -> %d", &first_p, &second_p);
+            else fscanf(input_file, "%d -- %d", &first_p, &second_p);
 
             if (min_p > first_p) min_p = first_p;
             if (min_p > second_p) min_p = second_p;
             if (max_p < first_p) max_p = first_p;
             if (max_p < second_p) max_p = second_p;
-            if (get_size == False) addEdge(graph, first_p, second_p, is_directed);
+            if (get_size == False) addEdge(graph, first_p, second_p);
         }
         else {printf("Troubles inside input file"); exit(1);}
 
@@ -125,15 +129,15 @@ int fromFile(FILE *input_file, Graph *graph, bool is_directed, bool get_size) {
     else return max_p;
 }
 
-void toDot(FILE *output_file, Graph *graph, bool is_directed) {
-    if (is_directed == True) fprintf(output_file, "digraph none {");
+void toDot(FILE *output_file, Graph *graph) {
+    if (graph->is_directed == True) fprintf(output_file, "digraph none {");
     else fprintf(output_file, "graph none {");
 
     for (int v = 0; v < graph->size; v++) {
         node *tmp = graph->points[v];
         while (tmp && tmp->uniq == True) {
 
-            if (is_directed == True) fprintf(output_file, "%d->%d;", v, tmp->vertex);
+            if (graph->is_directed == True) fprintf(output_file, "%d->%d;", v, tmp->vertex);
             else fprintf(output_file, "%d--%d;", v, tmp->vertex);
             tmp = tmp->next;
         }
@@ -189,11 +193,13 @@ int main(int argc, char *argv[]) {
     else if (!strcmp(argv[4], "-undirected"))is_directed = False;
     else {printf("Invalid arguments"); exit(1);}
 
-    int size = fromFile(input_file, NULL, is_directed, True);
-    Graph *graph = createGraph(size+1);
+    Graph *get_size = createGraph(-1,is_directed);
+    int size = fromFile(input_file, get_size, True);
+    deleteGraph(get_size);
+    Graph *graph = createGraph(size+1, is_directed);
 
-    fromFile(input_file, graph, is_directed, False);
-    toDot(output_file, graph, is_directed);
+    fromFile(input_file, graph, False);
+    toDot(output_file, graph);
     printGraph(graph);
 
     printf("DFS start...\n");
