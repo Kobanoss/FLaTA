@@ -186,12 +186,12 @@ int main(int argc, char *argv[]) {
 
     FILE *input_file = fopen(argv[1], "r");
     FILE *output_file = fopen(argv[2], "w+");
-    if (!input_file) {printf("Troubles with opening input file"); exit(1);}
-    if (!output_file) {printf("Troubles with opening output file"); exit(1);}
+    if (!input_file) {printf("Troubles with opening input file"); exit(130);}
+    if (!output_file) {printf("Troubles with opening output file"); exit(130);}
 
     if (!strcmp(argv[4], "-directed")) is_directed = True;
     else if (!strcmp(argv[4], "-undirected"))is_directed = False;
-    else {printf("Invalid arguments"); exit(1);}
+    else {printf("Invalid arguments"); exit(130);}
 
     Graph *get_size = createGraph(-1,is_directed);
     int size = fromFile(input_file, get_size, True);
