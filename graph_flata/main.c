@@ -120,7 +120,7 @@ int fromFile(FILE *input_file, Graph *graph, bool get_size) {
             if (max_p < second_p) max_p = second_p;
             if (get_size == False) addEdge(graph, first_p, second_p);
         }
-        else {printf("Troubles inside input file"); exit(1);}
+        else {printf("Troubles inside input file"); exit(130);}
 
     }
     if (get_size == False) {
