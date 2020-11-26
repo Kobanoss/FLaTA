@@ -28,14 +28,14 @@ void push(node **head, int value) {
     *head = tmp;
 }
 
-int peek(const node* head) {
+int peek(node* head) {
     if (head == NULL) {
         exit(STACK_UNDERFLOW);
     }
     return head->value;
 }
 
-int getSize(const node *head) {
+int getSize(node *head) {
     int size = 0;
     while (head) {
         size++;
@@ -57,7 +57,7 @@ int pop(node **head) {
     return value;
 }
 
-void printStack(const node* head) {
+void printStack(node* head) {
     printf("Stack -> \n");
     while (head) {
         printf("> %d \n", peek(head));
