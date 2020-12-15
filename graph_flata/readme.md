@@ -1,6 +1,6 @@
 
 
-Реализация предусматривает:
+# Реализация предусматривает:
 
 1) Cбор данных из файла, который указывается первым аргументом к исполняемому файлу;
 
@@ -26,8 +26,8 @@
 
 	Производится помощью утилиты dot из пакета graphviz, вызов команды встроен отельной функцией в программу;
 
-		Ориентированный граф:![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_directed.png)
-		Неориентированный граф:![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_undirected.png)
+	Ориентированный граф:![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_directed.png)
+	Неориентированный граф:![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_undirected.png)
 
 
 4) Выбор между ориентированным и неориентированным графом, статус графа указывается четвертым аргументом при вызове функции;
