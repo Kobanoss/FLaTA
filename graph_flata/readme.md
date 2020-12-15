@@ -13,8 +13,8 @@
 	
 		К репозиторию прикреплены файлы none_directed и none_undirected 
 			c примером содержимого для ориентированного и неориентированного графа соотвественно.
-		None directed: ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_directed)
-		None_undirected: ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_undirected)
+	None directed: ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_directed)
+	None_undirected: ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_undirected)
 
 
 2) Вывод данных в файл (.dot), который указывается вторым аргументом;
