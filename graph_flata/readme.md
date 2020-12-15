@@ -68,7 +68,7 @@ void findLoop(Graph *graph) {
 }
 ```
 ## Структурная схема алгоритма: 
-
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/diag.png)
 
 # Пример вызова и работы в терминале: 
 
