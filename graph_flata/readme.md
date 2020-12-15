@@ -26,10 +26,13 @@
 
 	Производится помощью утилиты dot из пакета graphviz, вызов команды встроен отельной функцией в программу;
 
-	Ориентированный граф: 		Неориентированный граф:
+	Ориентированный граф:
 	
 	![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_directed.png)	
-	    ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_undirected.png)
+	
+	Неориентированный граф:
+	
+	![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_undirected.png)
 
 
 
