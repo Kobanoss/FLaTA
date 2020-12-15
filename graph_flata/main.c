@@ -157,6 +157,19 @@ void toPNG(FILE* input_file, char* output) {
 
 
 }
+void findLoop(Graph *graph) {
+    for (int v = 0; v < graph->size; v++) {
+        node *tmp = graph->points[v];
+        int n = 0;
+        while (tmp) {
+            if (v == tmp->vertex && tmp->uniq == True) n++;
+            tmp = tmp->next;
+        }
+        if (n!=0) printf("Vertex %d is looped %d times\n", v, n);
+    }
+    printf("\n");
+
+}
 
 void printGraph(Graph *graph) {
     for (int v = 0; v < graph->size; v++) {
@@ -201,6 +214,7 @@ int main(int argc, char *argv[]) {
     fromFile(input_file, graph, False);
     toDot(output_file, graph);
     printGraph(graph);
+    findLoop(graph);
 
     printf("DFS start...\n");
     DFS(graph, min_p);
