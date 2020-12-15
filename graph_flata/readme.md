@@ -47,6 +47,29 @@
 	При несовпадении типа графа и содержимого файла выдается ошибка и действие программы завершается с кодом (1).
 
 
+## Дополнительное задание: 
+	 8. Найти все петли
+
+# Алгоритм: 
+- Проход по каждому узлу и определение, является ли связанная с ним вершина им самим		
+``` C
+void findLoop(Graph *graph) {
+    for (int v = 0; v < graph->size; v++) {
+        node *tmp = graph->points[v];
+        int n = 0;
+        while (tmp) {
+            if (v == tmp->vertex && tmp->uniq == True) n++;
+            tmp = tmp->next;
+        }
+        if (n!=0) printf("Vertex %d is looped %d times\n", v, n);
+    }
+    printf("\n");
+
+}
+```
+# Структурная схема алгоритма: 
+
+
 ## Пример вызова и работы в терминале: 
 
 ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/term.png)
