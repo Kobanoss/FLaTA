@@ -13,8 +13,6 @@
 	
 		К репозиторию прикреплены файлы none_directed и none_undirected 
 			c примером содержимого для ориентированного и неориентированного графа соотвественно.
-	None directed: ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_directed)
-	None_undirected: ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_undirected)
 
 
 2) Вывод данных в файл (.dot), который указывается вторым аргументом;
@@ -28,7 +26,8 @@
 
 	Производится помощью утилиты dot из пакета graphviz, вызов команды встроен отельной функцией в программу;
 
-		К репозиторию прикреплены файлы none_directed.png и none_undirected.png c примером содержимого.
+		Ориентированный граф:![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_directed.png)
+		Неориентированный граф:![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/none_undirected.png)
 
 
 4) Выбор между ориентированным и неориентированным графом, статус графа указывается четвертым аргументом при вызове функции;
