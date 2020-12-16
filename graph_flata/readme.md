@@ -70,6 +70,79 @@ void findLoop(Graph *graph) {
 ## Структурная схема алгоритма: 
 ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/diag.png)
 
+
+# Дополнительное задание:
+	2.Отсортировать все вершины по возрастанию степени вершины (быстрая сортировка)
+
+## Алгоритм нахождения степеней вершины: 
+``` C
+void findDegree(Graph *graph) {
+    for (int v = 0; v < graph->size; v++) {
+        node *tmp = graph->points[v];
+        int n = 0;
+        while (tmp) {
+            n++;
+            tmp = tmp->next;
+        }
+        if (n != 0) printf("Vertex %d has %d degree\n", v, n);
+        graph->degree[v] = n;
+    }
+    printf("\n");
+}
+```
+## Структурная схема алгоритма: 
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/diag.png)
+
+## Алгоритм быстрой сортировки(quickSort): 
+``` C
+void quickSort(int *arr, int first, int last) {
+    if (first < last) {
+        int left = first, right = last, middle = arr[(left + right) / 2];
+        do {
+            while (arr[left] < middle) left++;
+            while (arr[right] > middle) right--;
+            if (left <= right) {
+                swap(&arr[left], &arr[right]);
+                left++;
+                right--;
+            }
+        } while (left <= right);
+        quickSort(arr, first, right);
+        quickSort(arr, left, last);
+    }
+}
+```
+## Структурная схема алгоритма: 
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/diag.png)
+
+## Общий алгоритм: 
+``` C
+void degreeSort(Graph *graph) {
+    int *degrees = malloc(sizeof(graph->degree));
+    for (int v = 0; v < graph->size; v++) degrees[v] = graph->degree[v];
+    int points[graph->size];
+    for (int i = 0; i < graph->size; i++) points[i] = i;
+
+    quickSort(degrees, 0, graph->size - 1);
+
+    for (int v = 0; v < graph->size; v++) {
+        for (int i = 0; i < graph->size; i++) {
+            if (degrees[v] == graph->degree[points[i]]) {
+                if (degrees[v]!=0 && points[i]!=0) {
+                    points[i] = -1;
+                    printf("Vertex%d with %d degree\n", i, degrees[v]);
+                }
+            }
+        }
+    }
+    printf("\n");
+}
+```
+## Структурная схема алгоритма: 
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/diag.png)
+
+
+
 # Пример вызова и работы в терминале: 
 
 ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/term.png)
