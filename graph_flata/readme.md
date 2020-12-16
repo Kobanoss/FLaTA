@@ -112,6 +112,8 @@ void quickSort(int *arr, int first, int last) {
     }
 }
 ```
+## Визуализация алгоритма сортировки:
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort.gif)
 ## Структурная схема алгоритма: 
 ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/diag.png)
 
