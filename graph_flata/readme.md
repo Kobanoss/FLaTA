@@ -113,9 +113,9 @@ void quickSort(int *arr, int first, int last) {
 }
 ```
 ## Визуализация алгоритма сортировки:
-![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort_upd.gif)
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort.gif)
 ## Структурная схема алгоритма: 
-![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort.png)
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort_upd.png)
 
 ## Вывод отсортированного списка вершин с их степенью(степенью выхода для ориентированного графа): 
 ``` C
