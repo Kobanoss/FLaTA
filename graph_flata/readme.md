@@ -68,7 +68,7 @@ void findLoop(Graph *graph) {
 }
 ```
 ## Структурная схема алгоритма: 
-![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/find_loop.png)
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/find_loop_upd.png)
 
 
 # Дополнительное задание:
@@ -91,7 +91,7 @@ void findDegree(Graph *graph) {
 }
 ```
 ## Структурная схема алгоритма: 
-![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/find_degree.png)
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/find_degree_upd.png)
 
 ## Алгоритм быстрой сортировки(quickSort): 
 ``` C
@@ -113,7 +113,7 @@ void quickSort(int *arr, int first, int last) {
 }
 ```
 ## Визуализация алгоритма сортировки:
-![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort.gif)
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort_upd.gif)
 ## Структурная схема алгоритма: 
 ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort.png)
 
