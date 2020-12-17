@@ -91,7 +91,7 @@ void findDegree(Graph *graph) {
 }
 ```
 ## Структурная схема алгоритма: 
-![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/diag.png)
+![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/find_degree.png)
 
 ## Алгоритм быстрой сортировки(quickSort): 
 ``` C
