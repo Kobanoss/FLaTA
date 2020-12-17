@@ -232,7 +232,7 @@ void degreeSort(Graph *graph) {
             if (degrees[v] == graph->degree[points[i]]) {
                 if (degrees[v]!=0 && points[i]!=0) {
                     points[i] = -1;
-                    printf("Vertex%d with %d degree\n", i, degrees[v]);
+                    printf("Vertex %d with %d degree\n", i, degrees[v]);
                 }
             }
         }
