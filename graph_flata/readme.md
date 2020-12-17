@@ -117,7 +117,7 @@ void quickSort(int *arr, int first, int last) {
 ## Структурная схема алгоритма: 
 ![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/quick_sort.png)
 
-## Общий алгоритм: 
+## Вывод отсортированного списка вершин с их степенью(степенью выхода для ориентированного графа): 
 ``` C
 void degreeSort(Graph *graph) {
     int *degrees = malloc(sizeof(graph->degree));
@@ -140,8 +140,6 @@ void degreeSort(Graph *graph) {
     printf("\n");
 }
 ```
-## Структурная схема алгоритма: 
-![Alt-текст](https://github.com/Kobanoss/FLaTA/blob/master/graph_flata/diag.png)
 
 
 
